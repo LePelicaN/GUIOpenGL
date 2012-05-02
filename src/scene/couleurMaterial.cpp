@@ -33,12 +33,12 @@ void CouleurMaterial::afficherOpenGL() const
    glMaterialfv( GL_FRONT, GL_SHININESS, shininess_ );
 }
 
-void CouleurMaterial::afficher() const
+void CouleurMaterial::afficher( std::ostream & inO ) const
 {
-   std::cout << specular_[ 0 ] << " " << specular_[ 1 ] << " " << specular_[ 2 ] << " " << specular_[ 3 ] << std::endl;
-   std::cout << diffuse_[ 0 ] << " " << diffuse_[ 1 ] << " " << diffuse_[ 2 ] << " " << diffuse_[ 3 ] << std::endl;
-   std::cout << ambient_[ 0 ] << " " << ambient_[ 1 ] << " " << ambient_[ 2 ] << " " << ambient_[ 3 ] << std::endl;
-   std::cout << shininess_[ 0 ] << std::endl;
+   inO << specular_[ 0 ] << " " << specular_[ 1 ] << " " << specular_[ 2 ] << " " << specular_[ 3 ] << std::endl;
+   inO << diffuse_[ 0 ] << " " << diffuse_[ 1 ] << " " << diffuse_[ 2 ] << " " << diffuse_[ 3 ] << std::endl;
+   inO << ambient_[ 0 ] << " " << ambient_[ 1 ] << " " << ambient_[ 2 ] << " " << ambient_[ 3 ] << std::endl;
+   inO << shininess_[ 0 ] << std::endl;
 }
 
 bool CouleurMaterial::estValid() const

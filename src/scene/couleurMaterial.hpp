@@ -4,6 +4,8 @@
 
 #include <QtOpenGL>
 
+#include <iostream>
+
 class CouleurMaterial
 {
    public :
@@ -15,7 +17,7 @@ class CouleurMaterial
       CouleurMaterial( const CouleurMaterial & inCouleur );
 
       void afficherOpenGL() const;
-      void afficher() const;
+      void afficher( std::ostream & inO ) const;
 
       virtual bool estValid() const;
 

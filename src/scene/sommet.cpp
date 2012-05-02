@@ -21,13 +21,9 @@ void Sommet::afficherOpenGL() const
    glVertex3d( coordonneeX_, coordonneeY_, coordonneeZ_ );
 }
 
-void Sommet::afficher() const
+void Sommet::afficher( std::ostream & inO ) const
 {
-   std::cout << "[ "
-             << coordonneeX_ << "; "
-             << coordonneeY_ << "; "
-             << coordonneeZ_ << " ]"
-             << std::endl;
+   inO << "[ " << coordonneeX_ << "; " << coordonneeY_ << "; " << coordonneeZ_ << " ]";
 }
 
 Sommet operator+( const Sommet & inSommetGauche, const Sommet & inSommetDroit )

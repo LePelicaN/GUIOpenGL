@@ -2,15 +2,17 @@
 #ifndef SCENE_HPP_GUI_OPENGL
 #define SCENE_HPP_GUI_OPENGL
 
-#include <QtOpenGL>
-
-#include <string>
-
 #include "sommet.hpp"
 #include "cube.hpp"
 #include "couleurMaterial.hpp"
 
 #include "etat.hpp"
+
+#include <QtOpenGL>
+
+#include <string>
+
+#include <iostream>
 
 class Scene
 {
@@ -24,7 +26,7 @@ class Scene
       void ajouterCorrespondance( Etat inEtat, const std::string & inNomCouleur );
 
       void afficherOpenGL() const;
-      void afficher() const;
+      void afficher( std::ostream & inO ) const;
 
    private :
       double minX_;

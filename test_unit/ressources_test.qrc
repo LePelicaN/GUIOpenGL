@@ -1,0 +1,5 @@
+<RCC>
+   <qresource prefix="/">
+      <file>input/sortieVertexArrays.txt</file>
+   </qresource>
+</RCC>

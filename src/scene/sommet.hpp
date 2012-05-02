@@ -2,13 +2,15 @@
 #ifndef SOMMET_HPP_GUI_OPENGL
 #define SOMMET_HPP_GUI_OPENGL
 
+#include <iostream>
+
 class Sommet
 {
    public :
       Sommet();
       Sommet( double inCoordonneeX, double inCoordonneeY, double inCoordonneeZ );
       void afficherOpenGL() const;
-      void afficher() const;
+      void afficher( std::ostream & inO ) const;
 
    private :
       double   coordonneeX_;

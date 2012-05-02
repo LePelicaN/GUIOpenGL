@@ -46,14 +46,14 @@ void Scene::afficherOpenGL() const
    glEnd();
 }
 
-void Scene::afficher() const
+void Scene::afficher( std::ostream & inO ) const
 {
    for ( ConteneurCouleur::const_iterator couleurCourante = couleurs_.begin();
          couleurCourante != couleurs_.end();
          ++couleurCourante )
    {
-      std::cout << couleurCourante->first << "\n";
-      couleurCourante->second.afficher();
+      inO << couleurCourante->first << "\n";
+      couleurCourante->second.afficher( inO );
    }
    for ( ConteneurCubeEtat::const_iterator cubeCourant = cubes_.begin();
          cubeCourant != cubes_.end();
@@ -62,9 +62,9 @@ void Scene::afficher() const
       ConteneurEtatCouleur::const_iterator   couleurTrouve = correspondancesEtatCouleur_.find( cubeCourant->second );
       if ( couleurTrouve != correspondancesEtatCouleur_.end() )
       {
-         couleurTrouve->second.afficher();
+         couleurTrouve->second.afficher( inO );
       }
-      cubeCourant->first.afficher();
+      cubeCourant->first.afficher( inO );
    }
 }
 

@@ -32,11 +32,11 @@ void Cube::afficherOpenGL() const
    afficherFaceOpenGL( 0, 1, 3, 2 ); // Face devant
    afficherFaceOpenGL( 4, 6, 7, 5 ); // Face derriere
 }
-void Cube::afficher() const
+void Cube::afficher( std::ostream & inO ) const
 {
    for ( int indiceSommet = 0; indiceSommet < 8; ++indiceSommet )
    {
-      sommets_[ indiceSommet ].afficher();
+      sommets_[ indiceSommet ].afficher( inO );
    }
 }
 

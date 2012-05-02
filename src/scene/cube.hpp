@@ -4,12 +4,14 @@
 
 #include "sommet.hpp"
 
+#include <iostream>
+
 class Cube
 {
    public :
       Cube( Sommet inCoinSupDroitDevant, double inTailleCote );
       void afficherOpenGL() const;
-      void afficher() const;
+      void afficher( std::ostream & inO ) const;
 
    private :
       Sommet   sommets_[ 8 ];
