@@ -1,0 +1,8 @@
+
+#ifndef SCENEDECUBESFORWARD_HPP_GUI_OPENGL
+#define SCENEDECUBESFORWARD_HPP_GUI_OPENGL
+
+template < typename Etat >
+class SceneDeCubes;
+
+#endif // SCENEDECUBESFORWARD_HPP_GUI_OPENGL

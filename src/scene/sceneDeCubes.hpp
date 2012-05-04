@@ -1,6 +1,6 @@
 
-#ifndef SCENE_HPP_GUI_OPENGL
-#define SCENE_HPP_GUI_OPENGL
+#ifndef SCENEDECUBES_HPP_GUI_OPENGL
+#define SCENEDECUBES_HPP_GUI_OPENGL
 
 #include "sommet.hpp"
 #include "cube.hpp"
@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-class Scene
+class SceneDeCubes
 {
    public :
       typedef std::vector< std::pair< Cube, Etat > > ConteneurCubeEtat;
@@ -41,8 +41,8 @@ class Scene
       
 };
 
-Scene chargerCubesFichier( const std::string & inChemin );
-void chargerCouleursFichier( const std::string & inChemin, Scene & inoutScene );
-void chargerCorrespondanceEtatCouleursFichier( const std::string & inChemin, Scene & inoutScene );
+SceneDeCubes chargerCubesFichier( const std::string & inChemin );
+void chargerCouleursFichier( const std::string & inChemin, SceneDeCubes & inoutScene );
+void chargerCorrespondanceEtatCouleursFichier( const std::string & inChemin, SceneDeCubes & inoutScene );
 
-#endif // SCENE_HPP_GUI_OPENGL
+#endif // SCENEDECUBES_HPP_GUI_OPENGL

@@ -1,20 +1,20 @@
 
-#include "scene.hpp"
+#include "sceneDeCubes.hpp"
 
 #include <fstream>
 #include <iostream>
 
-void Scene::ajouterCube( Cube inCube, Etat inEtat )
+void SceneDeCubes::ajouterCube( Cube inCube, Etat inEtat )
 {
    cubes_.push_back( std::make_pair( inCube, inEtat ) );
 }
 
-void Scene::ajouterCouleur( const std::string & inNomCouleur, const CouleurMaterial & inCouleur )
+void SceneDeCubes::ajouterCouleur( const std::string & inNomCouleur, const CouleurMaterial & inCouleur )
 {
    couleurs_[ inNomCouleur ] = inCouleur;
 }
 
-void Scene::ajouterCorrespondance( Etat inEtat, const std::string & inNomCouleur )
+void SceneDeCubes::ajouterCorrespondance( Etat inEtat, const std::string & inNomCouleur )
 {
    ConteneurCouleur::const_iterator  couleurTrouve  = couleurs_.find( inNomCouleur );
    if ( couleurTrouve != couleurs_.end() )
@@ -28,7 +28,7 @@ void Scene::ajouterCorrespondance( Etat inEtat, const std::string & inNomCouleur
    }
 }
 
-void Scene::afficherOpenGL() const
+void SceneDeCubes::afficherOpenGL() const
 {
    glBegin(GL_QUADS);
       for ( ConteneurCubeEtat::const_iterator cubeCourant = cubes_.begin();
@@ -46,7 +46,7 @@ void Scene::afficherOpenGL() const
    glEnd();
 }
 
-void Scene::afficher( std::ostream & inO ) const
+void SceneDeCubes::afficher( std::ostream & inO ) const
 {
    for ( ConteneurCouleur::const_iterator couleurCourante = couleurs_.begin();
          couleurCourante != couleurs_.end();
@@ -68,9 +68,9 @@ void Scene::afficher( std::ostream & inO ) const
    }
 }
 
-Scene chargerCubesFichier( const std::string & inChemin )
+SceneDeCubes chargerCubesFichier( const std::string & inChemin )
 {
-   Scene outScene;
+   SceneDeCubes outScene;
 
    std::ifstream  fichierLu( inChemin.c_str() );
 
@@ -123,7 +123,7 @@ Scene chargerCubesFichier( const std::string & inChemin )
    return outScene;
 }
 
-void chargerCouleursFichier( const std::string & inChemin, Scene & inoutScene )
+void chargerCouleursFichier( const std::string & inChemin, SceneDeCubes & inoutScene )
 {
    std::ifstream  fichierLu( inChemin.c_str() );
 
@@ -163,7 +163,7 @@ void chargerCouleursFichier( const std::string & inChemin, Scene & inoutScene )
    }
 }
 
-void chargerCorrespondanceEtatCouleursFichier( const std::string & inChemin, Scene & inoutScene )
+void chargerCorrespondanceEtatCouleursFichier( const std::string & inChemin, SceneDeCubes & inoutScene )
 {
    std::ifstream  fichierLu( inChemin.c_str() );
 
