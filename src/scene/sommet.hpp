@@ -8,14 +8,16 @@ class Sommet
 {
    public :
       Sommet();
-      Sommet( double inCoordonneeX, double inCoordonneeY, double inCoordonneeZ );
+      Sommet( float inCoordonneeX, float inCoordonneeY, float inCoordonneeZ );
       void afficherOpenGL() const;
       void afficher( std::ostream & inO ) const;
 
+      static const int NbCoordonnees_ = 3;
+
    private :
-      double   coordonneeX_;
-      double   coordonneeY_;
-      double   coordonneeZ_;
+      float coordonneeX_;
+      float coordonneeY_;
+      float coordonneeZ_;
 
    friend Sommet operator+( const Sommet & inSommetGauche, const Sommet & inSommetDroit );
 };

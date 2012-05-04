@@ -9,7 +9,7 @@ Sommet::Sommet()
 {
 }
 
-Sommet::Sommet( double inCoordonneeX, double inCoordonneeY, double inCoordonneeZ )
+Sommet::Sommet( float inCoordonneeX, float inCoordonneeY, float inCoordonneeZ )
    : coordonneeX_( inCoordonneeX ),
      coordonneeY_( inCoordonneeY ),
      coordonneeZ_( inCoordonneeZ )

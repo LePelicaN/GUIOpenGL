@@ -10,59 +10,32 @@
 
 class VueOpenGLWidget : public QGLWidget
 {
-    Q_OBJECT
+   Q_OBJECT
 
-public:
-    VueOpenGLWidget(QWidget *parent = 0);
-    // ~VueOpenGLWidget();
+   public:
+      VueOpenGLWidget( QWidget *parent = 0 );
 
-    QSize minimumSizeHint() const;
-    QSize sizeHint() const;
+      const QObject & getOpenGLCamera() const;
+      const QObject & getOpenGLRotation() const;
+      const QObject & getOpenGLLumiere() const;
 
-   const QObject & getOpenGLCamera() const
-   { return openGLCamera_; }
+      QSize minimumSizeHint() const;
+      QSize sizeHint() const;
 
-   const QObject & getOpenGLRotation() const
-   { return openGLRotation_; }
+   protected:
+      void initializeGL();
+      void paintGL();
+      void resizeGL( int inWidth, int inHeight );
 
-   const QObject & getOpenGLLumiere() const
-   { return openGLLumiere_; }
+      void mousePressEvent( QMouseEvent * inMouseEvent );
+      void mouseMoveEvent( QMouseEvent * inMouseEvent );
 
-public slots:
-   void setXRotation(int angle);
-   void setYRotation(int angle);
-   void setZRotation(int angle);
+   private:
+      OpenGLCamera   openGLCamera_;
+      OpenGLRotation openGLRotation_;
+      OpenGLLumiere  openGLLumiere_;
 
-signals:
-    void xRotationChanged(int angle);
-    void yRotationChanged(int angle);
-    void zRotationChanged(int angle);
-
-protected:
-    void initializeGL();
-    void paintGL();
-    void resizeGL(int width, int height);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-
-private:
-   OpenGLCamera   openGLCamera_;
-   OpenGLRotation openGLRotation_;
-   OpenGLLumiere  openGLLumiere_;
-
-   void createConnexionLumiere();
-
-    int xRot;
-    int yRot;
-    int zRot;
-    QPoint lastPos;
-    QColor qtGreen;
-    QColor qtPurple;
-    
-    
-    double coordFaceRouge[ 4 ][ 3 ];
-    double coordFaceVerte[ 4 ][ 3 ];
-    double coordFaceBleu[ 4 ][ 3 ];
+      QPoint lastPos;
 };
 
 #endif // OPENGL_WIDGET_HPP_GUI_OPENGL

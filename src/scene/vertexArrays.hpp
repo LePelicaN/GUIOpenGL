@@ -20,6 +20,7 @@ class VertexArrays
    private :
       std::vector< Sommet >         sommets_;
       std::vector< CouleurBasique > couleurs_;
+      std::vector< unsigned int >   indices_;
 };
 
 #endif // VERTEXARRAYS_HPP_GUI_OPENGL
