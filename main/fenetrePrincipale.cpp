@@ -7,9 +7,9 @@
 
 #include "visualisationOpenGL.hpp"
 
-FenetrePrincipale::FenetrePrincipale()
+FenetrePrincipale::FenetrePrincipale( ConteneurObjetGraphique * inObjetsGraphiques )
 {
-   visualisationOpenGL_ = new VisualisationOpenGL();
+   visualisationOpenGL_ = new VisualisationOpenGL( inObjetsGraphiques );
 
    QHBoxLayout *mainLayout = new QHBoxLayout;
    mainLayout->addWidget( visualisationOpenGL_ );

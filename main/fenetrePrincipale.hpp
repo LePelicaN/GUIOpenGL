@@ -2,16 +2,17 @@
 #ifndef FENETREPRINCIPALE_HPP_GUI_OPENGL
 #define FENETREPRINCIPALE_HPP_GUI_OPENGL
 
-#include <QtGui/QMainWindow>
+#include "visualisationOpenGL.hpp"
 
-class VisualisationOpenGL;
+#include <QtGui/QMainWindow>
 
 class FenetrePrincipale : public QMainWindow
 {
    Q_OBJECT
 
    public:
-      FenetrePrincipale();
+      typedef VisualisationOpenGL::ConteneurObjetGraphique ConteneurObjetGraphique;
+      FenetrePrincipale( ConteneurObjetGraphique * inObjetsGraphiques );
 
       void affichageTailleCorrect();
 

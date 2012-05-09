@@ -2,18 +2,23 @@
 #ifndef OPENGL_WIDGET_HPP_GUI_OPENGL
 #define OPENGL_WIDGET_HPP_GUI_OPENGL
 
-#include <QGLWidget>
-
 #include "openGLCamera.hpp"
 #include "openGLRotation.hpp"
 #include "openGLLumiere.hpp"
+#include "../scene/objetGraphique.hpp"
+
+#include <QGLWidget>
+
+#include <vector>
 
 class VueOpenGLWidget : public QGLWidget
 {
    Q_OBJECT
 
-   public:
-      VueOpenGLWidget( QWidget *parent = 0 );
+   public :
+      typedef std::vector< ObjetGraphique * > ConteneurObjetGraphique;
+
+      VueOpenGLWidget( ConteneurObjetGraphique * inObjetsGraphiques, QWidget * inParent = 0 );
 
       const QObject & getOpenGLCamera() const;
       const QObject & getOpenGLRotation() const;
@@ -22,7 +27,7 @@ class VueOpenGLWidget : public QGLWidget
       QSize minimumSizeHint() const;
       QSize sizeHint() const;
 
-   protected:
+   protected :
       void initializeGL();
       void paintGL();
       void resizeGL( int inWidth, int inHeight );
@@ -30,12 +35,14 @@ class VueOpenGLWidget : public QGLWidget
       void mousePressEvent( QMouseEvent * inMouseEvent );
       void mouseMoveEvent( QMouseEvent * inMouseEvent );
 
-   private:
+   private :
       OpenGLCamera   openGLCamera_;
       OpenGLRotation openGLRotation_;
       OpenGLLumiere  openGLLumiere_;
 
       QPoint lastPos;
+
+      ConteneurObjetGraphique *   objetsGraphiques_;
 };
 
 #endif // OPENGL_WIDGET_HPP_GUI_OPENGL

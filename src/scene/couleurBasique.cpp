@@ -22,10 +22,7 @@ CouleurBasique::CouleurBasique( const CouleurBasique & inCouleur )
 
 void CouleurBasique::afficherOpenGL() const
 {
-   // glMaterialfv( GL_FRONT, GL_SPECULAR, specular_ );
-   // glMaterialfv( GL_FRONT, GL_DIFFUSE, diffuse_ );
-   // glMaterialfv( GL_FRONT, GL_AMBIENT, ambient_ );
-   // glMaterialfv( GL_FRONT, GL_SHININESS, shininess_ );
+   glColor3f( rgb_[ 0 ], rgb_[ 1 ], rgb_[ 2 ] );
 }
 
 void CouleurBasique::afficher( std::ostream & inO ) const

@@ -2,17 +2,19 @@
 #ifndef VISUALISATION_OPENGL_HPP_GUI_OPENGL
 #define VISUALISATION_OPENGL_HPP_GUI_OPENGL
 
+#include "vueOpenGLWidget.hpp"
+
 #include <QtGui/QWidget>
 
 class ParametresAvancesOpenGLWidget;
-class VueOpenGLWidget;
 
 class VisualisationOpenGL : public QWidget
 {
    Q_OBJECT
 
    public:
-      VisualisationOpenGL();
+      typedef VueOpenGLWidget::ConteneurObjetGraphique ConteneurObjetGraphique;
+      VisualisationOpenGL( ConteneurObjetGraphique * inObjetsGraphiques );
 
    private:
       VueOpenGLWidget *                vueOpenGLWidget_;

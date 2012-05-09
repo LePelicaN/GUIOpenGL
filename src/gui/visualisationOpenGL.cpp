@@ -6,9 +6,9 @@
 
 #include <QtGui/QHBoxLayout>
 
-VisualisationOpenGL::VisualisationOpenGL()
+VisualisationOpenGL::VisualisationOpenGL( ConteneurObjetGraphique * inObjetsGraphiques )
 {
-   vueOpenGLWidget_                 = new VueOpenGLWidget();
+   vueOpenGLWidget_                 = new VueOpenGLWidget( inObjetsGraphiques );
    parametresAvancesOpenGLWidget_   = new ParametresAvancesOpenGLWidget( vueOpenGLWidget_ );
 
    QHBoxLayout *  mainLayout  = new QHBoxLayout;

@@ -4,10 +4,11 @@
 #include <QtGui>
 #include <QtOpenGL>
 
-#include "vertexArrays.hpp"
+// #include "vertexArrays.hpp"
 
-VueOpenGLWidget::VueOpenGLWidget(QWidget *parent)
-    : QGLWidget(QGLFormat(QGL::SampleBuffers), parent)
+VueOpenGLWidget::VueOpenGLWidget( ConteneurObjetGraphique * inObjetsGraphiques, QWidget * inParent )
+   : QGLWidget( QGLFormat( QGL::SampleBuffers ), inParent ),
+     objetsGraphiques_( inObjetsGraphiques )
 {
    connect( &openGLCamera_, SIGNAL( miseAJour() ),
             this,           SLOT(   update() ) );
@@ -71,14 +72,20 @@ void VueOpenGLWidget::paintGL()
    OpenGLLumiere::MettreAJourGeneral();
    openGLLumiere_.mettreAJour();
 
+   for ( ConteneurObjetGraphique::const_iterator objetGraphiqueCourant = objetsGraphiques_->begin();
+         objetGraphiqueCourant != objetsGraphiques_->end();
+         ++objetGraphiqueCourant )
+   {
+      (*objetGraphiqueCourant)->afficherOpenGL();
+   }
    
-   VertexArrays   vertexArrays;
-   vertexArrays.ajoutSommet( Sommet( 0.8, -0.8, 0 ), CouleurBasique( 0.0, 1.0, 0.0 ) );
-   vertexArrays.ajoutSommet( Sommet( -0.8, -0.8, 0 ), CouleurBasique( 1.0, 0.0, 0.0 ) );
-   vertexArrays.ajoutSommet( Sommet( -0.8, 0.8, 0 ), CouleurBasique( 1.0, 1.0, 1.0 ) );
-   vertexArrays.ajoutSommet( Sommet( 0.8, 0.8, 0 ), CouleurBasique( 0.0, 0.0, 1.0 ) );
-   vertexArrays.ajoutSommet( Sommet( 2, 0.8, 0 ), CouleurBasique( 0.0, 0.0, 1.0 ) );
-   vertexArrays.afficherOpenGL();
+   // VertexArrays   vertexArrays;
+   // vertexArrays.ajoutSommet( Sommet( 0.8, -0.8, 0 ), CouleurBasique( 0.0, 1.0, 0.0 ) );
+   // vertexArrays.ajoutSommet( Sommet( -0.8, -0.8, 0 ), CouleurBasique( 1.0, 0.0, 0.0 ) );
+   // vertexArrays.ajoutSommet( Sommet( -0.8, 0.8, 0 ), CouleurBasique( 1.0, 1.0, 1.0 ) );
+   // vertexArrays.ajoutSommet( Sommet( 0.8, 0.8, 0 ), CouleurBasique( 0.0, 0.0, 1.0 ) );
+   // vertexArrays.ajoutSommet( Sommet( 2, 0.8, 0 ), CouleurBasique( 0.0, 0.0, 1.0 ) );
+   // vertexArrays.afficherOpenGL();
 
 //   sceneAffichee_.afficherOpenGL();
 }

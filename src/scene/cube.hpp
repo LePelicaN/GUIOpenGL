@@ -2,11 +2,12 @@
 #ifndef CUBE_HPP_GUI_OPENGL
 #define CUBE_HPP_GUI_OPENGL
 
+#include "objetGraphique.hpp"
 #include "sommet.hpp"
 
 #include <iostream>
 
-class Cube
+class Cube : public ObjetGraphique
 {
    public :
       Cube( Sommet inCoinSupDroitDevant, double inTailleCote );

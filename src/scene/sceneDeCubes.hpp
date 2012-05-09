@@ -2,6 +2,7 @@
 #ifndef SCENEDECUBES_HPP_GUI_OPENGL
 #define SCENEDECUBES_HPP_GUI_OPENGL
 
+#include "objetGraphique.hpp"
 #include "sommet.hpp"
 #include "cube.hpp"
 #include "couleurMaterial.hpp"
@@ -14,7 +15,7 @@
 
 #include <iostream>
 
-class SceneDeCubes
+class SceneDeCubes : public ObjetGraphique
 {
    public :
       typedef std::vector< std::pair< Cube, Etat > > ConteneurCubeEtat;

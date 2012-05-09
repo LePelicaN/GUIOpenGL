@@ -36,7 +36,6 @@ void VertexArrays::afficherOpenGL() const
 
    /* on échange les tampons */
    glFlush();
-   //SDL_GL_SwapBuffers();
 }
 
 void VertexArrays::afficher( std::ostream & inO ) const
